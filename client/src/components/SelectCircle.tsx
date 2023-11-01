@@ -1,4 +1,5 @@
 import { FC } from "react"
+import SelectOptions from "./SelectOptions";
 
 interface SelectCircleProps {
   posX: number,
@@ -7,13 +8,16 @@ interface SelectCircleProps {
 
 const SelectCircle: FC<SelectCircleProps> = ({posX, posY}) => {
   return (
-    <div className = "circle" style={{
-      position: "absolute",
-      left: posX,
-      top: posY,
-      transform: "translate(-50%, -50%)"
-    }}>
-    </div>
+    <>
+      <div className = "circle" style={{
+        position: "absolute",
+        left: posX,
+        top: posY,
+        transform: "translate(-50%, -50%)"
+      }}>
+        <SelectOptions />
+      </div>
+    </>
   )
 }
 

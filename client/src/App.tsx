@@ -9,13 +9,9 @@ function App() {
     posY: 0
   }
 
-  window.addEventListener('resize', () => {
-    setCoordinate(sampleCoordinate);
-    setIsActive(false);
-  })
-
   const [isActive, setIsActive] = useState(false);
   const [coordinates, setCoordinate] = useState(sampleCoordinate)
+  const [pokemon, setPokemon] = useState({});
 
   function handleClick(event : React.MouseEvent<HTMLElement>){
     setIsActive(prevActive => !prevActive);
