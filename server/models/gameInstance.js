@@ -1,6 +1,6 @@
 // stores the user's current game, their score, etc.
-import mongoose from "mongoose";
-import { gameStatusEnum, gameTypeEnum } from "../constants/enum";
+const mongoose = require("mongoose");
+const { gameStatusEnum } = require("../constants/enum");
 const Schema = mongoose.Schema;
 
 const GameInstanceSchema = new Schema({
@@ -23,9 +23,8 @@ const GameInstanceSchema = new Schema({
     default: 0
   }, 
   gameType: {
-    type: String,
-    required: true,
-    enum: [gameTypeEnum.POKEMON, gameTypeEnum.SMASH, gameTypeEnum.WALDO]
+    type: Schema.Types.ObjectId,
+    required: true
   },
   waldoToFindRemaining: {
     type: Array,

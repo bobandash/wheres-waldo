@@ -1,6 +1,5 @@
 // waldo stores all the potential characters that the user needs to find
-import mongoose from "mongoose";
-import { gameTypeEnum } from "../constants/enum";
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const WaldoModelSchema = new Schema({
@@ -9,8 +8,14 @@ const WaldoModelSchema = new Schema({
     required: true,
   },
   image: {
-    type: Buffer,
-    required: true
+    filename: {
+      type: String,
+      required: true,
+    }, 
+    path: {
+      type: String,
+      required: true
+    }
   },
   pixelPositionRange: {
     minPixelX: {
@@ -31,9 +36,8 @@ const WaldoModelSchema = new Schema({
     }
   },
   gameType: {
-    type: String,
-    required: true,
-    enum: [gameTypeEnum.POKEMON, gameTypeEnum.SMASH, gameTypeEnum.WALDO]
+    type: Schema.Types.ObjectId,
+    required: true
   }
 })
 
