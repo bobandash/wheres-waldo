@@ -1,4 +1,4 @@
-interface WaldoProps {
+export interface WaldoProps {
   _id: string
   name: string,
   image: {
@@ -7,4 +7,12 @@ interface WaldoProps {
   }
 }
 
-export type {WaldoProps}
+export const sampleWaldo = {
+  _id: '',
+  name: '',
+  image: {
+    filename: '',
+    path: '',
+  },
+}
+

@@ -4,9 +4,10 @@ import styles from './Header.module.css'
 
 interface HeaderProps {
   waldos: Array<WaldoProps>,
+  score: number
 }
 
-const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos}, ref) => {
+const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos, score}, ref) => {
   return(
     <header ref = {ref} className = {styles.header}>
       <h1 className = {styles.logo}>Findus</h1>
@@ -20,7 +21,7 @@ const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos}, r
           </div>
         ))}
       </div>
-      <h1>SCORE:</h1>
+      <h1>SCORE: {score}</h1>
     </header>
   )
 });
