@@ -10,6 +10,7 @@ require('./config/database.config')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const waldoRouter = require('./routes/waldo')
+const gameRouter = require('./routes/game')
 
 const app = express();
 
@@ -26,7 +27,8 @@ app.use(cors());
 app.use('/uploads', express.static('uploads'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/waldo', waldoRouter)
+app.use('/waldo', waldoRouter);
+app.use('/game', gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
