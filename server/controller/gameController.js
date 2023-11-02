@@ -52,7 +52,7 @@ exports.choose_waldo = asyncHandler(async (req, res, next) => {
   }).exec();
   const {minPixelX, minPixelY, maxPixelX, maxPixelY} = chosenWaldo.pixelPositionRange;
   if(posX >= minPixelX && posX <= maxPixelX){
-    if(posY >= minPixelY && posY <+ maxPixelY){
+    if(posY >= minPixelY && posY <= maxPixelY){
       hasMatch = true;
     }
   }
@@ -60,5 +60,6 @@ exports.choose_waldo = asyncHandler(async (req, res, next) => {
   if(hasMatch){
     currentGame.waldoToFindRemaining = currentGame.waldoToFindRemaining.filter(currWaldo => currWaldo.name != waldo);
   }
+  currentGame.save();
   res.json(currentGame);
 })

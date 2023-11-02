@@ -17,8 +17,8 @@ const SelectCircle: FC<SelectCircleProps> = ({waldos, posX, posY}) => {
         top: posY,
         transform: "translate(-50%, -50%)"
       }}>
-        <SelectOptions waldos = {waldos}/>
       </div>
+      <SelectOptions waldos = {waldos} posX = {posX} posY = {posY}/>
     </>
   )
 }
