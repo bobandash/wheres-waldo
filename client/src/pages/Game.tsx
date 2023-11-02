@@ -1,6 +1,6 @@
 import styles from './Game.module.css';
 import { useState, useEffect } from 'react';
-import SelectCircle from '../components/SelectCircle';
+import SelectCircle from './SelectCircle';
 import Header from '../components/Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -58,7 +58,7 @@ function App() {
       <Header waldos = {waldos}/>
       <div onClick = {handleClick} className = {styles["img-container"]}>
         <img src = {`api/${currentGameType.image.path}`} />
-        {isActive && <SelectCircle posX = {coordinates.posX} posY = {coordinates.posY} />}
+        {isActive && <SelectCircle waldos = {waldos} posX = {coordinates.posX} posY = {coordinates.posY} />}
       </div>
     </>
 
