@@ -1,44 +1,28 @@
-import allPokemon from './assets/pokemon.jpg'
-import styles from './Game.module.css';
-import { useState, useEffect } from 'react';
-import SelectCircle from './components/SelectCircle';
-import Header from './components/Header';
+import styles from './App.module.css'
+import {useEffect, useState} from 'react'
 import axios from 'axios';
+import GamemodeOptions from './components/GamemodeOptions';
+import { GameTypeProps } from './interfaces/game_type_interface';
 
-function App() {
-  const sampleCoordinate = {
-    posX: 0,
-    posY: 0
-  }
-  const [isActive, setIsActive] = useState(false);
-  const [coordinates, setCoordinate] = useState(sampleCoordinate)
-  const [waldos, setWaldos] = useState([]);
-
-  function handleClick(event : React.MouseEvent<HTMLElement>){
-    setIsActive(prevActive => !prevActive);
-    setCoordinate({
-      posX: event.pageX,
-      posY: event.pageY
-    })
-  }
-
+const App = () => {
+  const [gameTypes, setGameTypes] = useState([]);
   useEffect(() => {
-    async function getWaldos(){
-      const data = (await axios.get('/api/waldo/pokemon')).data;
-      setWaldos(data);
-    }
-    getWaldos();
+    async function getGameTypes(){
+      const data = (await axios.get('/api/game/gameTypes')).data;
+      setGameTypes(data);
+    } 
+    getGameTypes();
   }, [])
 
   return (
-    <>
-      <Header waldos = {waldos}/>
-      <div onClick = {handleClick} className = {styles["img-container"]}>
-        <img src = {allPokemon} />
-        {isActive && <SelectCircle posX = {coordinates.posX} posY = {coordinates.posY} />}
+    <div className = {styles.container}>
+      <h1>Select The Mode</h1>
+      <div className = {styles['gamemode-options-container']}>
+        {gameTypes.map((gameType: GameTypeProps) => (
+          <GamemodeOptions key = {gameType._id} gameType = {gameType} /> 
+        ))}
       </div>
-    </>
-
+    </div>
   )
 }
 

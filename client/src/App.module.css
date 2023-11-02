@@ -1,0 +1,28 @@
+.container {
+  background-color: black;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container * {
+  color: white;
+}
+
+.container h1 {
+  margin: 0;
+}
+
+.gamemode-options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.gamemode-options-container > div {
+  max-width: 25%;
+}
