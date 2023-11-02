@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { GameTypeProps, exampleGameType } from '../interfaces/game_type_interface';
 import { WaldoProps, sampleWaldo } from '../interfaces/waldo_interface';
-import { gameStatusEnum } from '../constants/enum';
+import { gameStatusEnum, statusMessageEnum } from '../constants/enum';
 import {GameContext} from './context/GameContext'
 import { GameProps } from '../interfaces/game_interface';
 
@@ -27,7 +27,7 @@ function App() {
   const [gameId, setGameId] = useState(0);
   const [score, setScore] = useState(0);
   const [gameStatus, setGameStatus] = useState(gameStatusEnum.NOT_STARTED);
-  const [isErrorDisplayed, setErrorDisplayed] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(statusMessageEnum.BLANK);
 
   function handleClick(event : React.MouseEvent<HTMLElement>){
     setIsActive(prevActive => !prevActive);
@@ -36,7 +36,7 @@ function App() {
       posY: event.pageY - headerHeight
     })
     // remove error message on wrong click if image is clicked
-    setErrorDisplayed(false);
+    handleSetMessage(statusMessageEnum.BLANK);
   }
 
   // creates the game and sets the params
@@ -107,8 +107,8 @@ function App() {
     setGameStatus(status);
   }
 
-  function handleErrorDisplayed(isShown : boolean){
-    setErrorDisplayed(isShown);
+  function handleSetMessage(message: string){
+    setStatusMessage(message);
   }
 
   if(isLoading){
@@ -122,7 +122,7 @@ function App() {
       windowWidth, 
       handleWaldos, 
       handleGameStatus,
-      handleErrorDisplayed,
+      handleSetMessage,
       gameId, 
       headerHeight, 
       score,
@@ -130,10 +130,11 @@ function App() {
     }}>
       <Header ref = {headerRef} waldos = {waldos} score = {score}/>
       <div onClick = {handleClick} className = {styles["img-container"]}>
+        {statusMessage === statusMessageEnum.ERROR && <span className = {`${styles["error"]} ${styles.message}`}>{statusMessage}</span>}
+        {statusMessage === statusMessageEnum.SUCCESS && <span className = {`${styles["success"]} ${styles.message}`}>{statusMessage}</span>}
         <img src = {`api/${currentGameType.image.path}`} />
-        {isActive && <SelectCircle waldos = {waldos} posX = {coordinates.posX} posY = {coordinates.posY} />}
+        {isActive && <SelectCircle />}
       </div>
-      {isErrorDisplayed && <span>Wrong location.</span>}
     </GameContext.Provider>
   )
 }

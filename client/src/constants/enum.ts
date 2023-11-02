@@ -10,4 +10,10 @@ const gameStatusEnum = {
   COMPLETED: 'completed'
 }
 
-export {gameTypeEnum, gameStatusEnum};
+const statusMessageEnum = {
+  BLANK: '',
+  SUCCESS: 'Keep it up!',
+  ERROR: 'Incorrect Location'
+}
+
+export {gameTypeEnum, gameStatusEnum, statusMessageEnum};

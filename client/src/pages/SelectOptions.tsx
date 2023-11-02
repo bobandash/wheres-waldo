@@ -4,13 +4,8 @@ import styles from './SelectOptions.module.css'
 import { useGameContext } from "./context/GameContext"
 import axios from "axios"
 import { GameProps } from "../interfaces/game_interface"
-import { gameStatusEnum } from "../constants/enum"
+import { gameStatusEnum, statusMessageEnum } from "../constants/enum"
 
-interface SelectOptionsProps {
-  waldos: Array<WaldoProps>
-  posX: number,
-  posY: number
-}
 
 interface SelectOptionProps {
   waldo: WaldoProps
@@ -40,7 +35,7 @@ const SelectOption:FC<SelectOptionProps> = ({waldo}) => {
     headerHeight, 
     gameId, 
     waldos, 
-    handleErrorDisplayed, 
+    handleSetMessage, 
     handleWaldos, 
     handleGameStatus
   } = useGameContext();
@@ -65,10 +60,10 @@ const SelectOption:FC<SelectOptionProps> = ({waldo}) => {
   async function handleOptionClick(){
     const currentGameInstance : GameProps = (await axios.put('/api/game/choose-waldo', data)).data;
     if(waldos.length === currentGameInstance.waldoToFindRemaining.length){
-      handleErrorDisplayed(true);
+      handleSetMessage(statusMessageEnum.ERROR);
     } else {
       handleWaldos(currentGameInstance.waldoToFindRemaining);
-      handleErrorDisplayed(false);
+      handleSetMessage(statusMessageEnum.SUCCESS);
       if(currentGameInstance.waldoToFindRemaining.length === 0){
         handleGameStatus(gameStatusEnum.COMPLETED);
       }
@@ -86,15 +81,20 @@ const SelectOption:FC<SelectOptionProps> = ({waldo}) => {
   )
 }
 
-const SelectOptions:FC<SelectOptionsProps> = ({waldos, posX, posY}) => {
+const SelectOptions:FC = () => {
+  const {waldos, coordinates, windowWidth} = useGameContext();
+  const {posX, posY} = coordinates;
+  let atLeftSide = true;
+  if(posX >= (windowWidth / 2)){
+    atLeftSide = false;
+  }
   return (
     <div style={{
       position: "absolute",
       left: posX,
       top: posY,
-      transform: "translate(40px, -20px)"
       }}
-      className = {styles["options-container"]}
+      className = {atLeftSide ? `${styles["options-container"]} ${styles.right}` : `${styles["options-container"]} ${styles.left}`} 
     >
         {waldos.map(waldo => (
           <SelectOption waldo = {waldo} key = {waldo._id} posX = {posX} posY = {posY}/>

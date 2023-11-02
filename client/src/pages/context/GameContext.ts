@@ -9,7 +9,7 @@ interface GameContextProps {
   windowWidth: number,
   handleWaldos: (waldos: Array<WaldoProps>) => void,
   handleGameStatus: (status : string) => void,
-  handleErrorDisplayed: (isShown: boolean) => void,
+  handleSetMessage: (message: string) => void,
   gameId: number,
   headerHeight: number,
   score: number,

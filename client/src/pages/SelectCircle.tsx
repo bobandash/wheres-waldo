@@ -1,14 +1,11 @@
 import { FC } from "react"
 import SelectOptions from "./SelectOptions";
-import { WaldoProps } from "../interfaces/waldo_interface";
+import { useGameContext } from "./context/GameContext";
 
-interface SelectCircleProps {
-  posX: number,
-  posY: number
-  waldos: Array<WaldoProps>
-}
 
-const SelectCircle: FC<SelectCircleProps> = ({waldos, posX, posY}) => {
+const SelectCircle: FC = () => {
+  const {coordinates} = useGameContext();
+  const {posX, posY} = coordinates;
   return (
     <>
       <div className = "circle" style={{
@@ -18,7 +15,7 @@ const SelectCircle: FC<SelectCircleProps> = ({waldos, posX, posY}) => {
         transform: "translate(-50%, -50%)"
       }}>
       </div>
-      <SelectOptions waldos = {waldos} posX = {posX} posY = {posY}/>
+      <SelectOptions />
     </>
   )
 }
