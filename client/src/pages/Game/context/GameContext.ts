@@ -1,5 +1,5 @@
 import {createContext, useContext} from 'react';
-import { WaldoProps } from '../../interfaces/waldo_interface';
+import { WaldoProps } from '../../../interfaces/waldo_interface';
 
 interface GameContextProps {
   coordinates: {

@@ -1,10 +1,10 @@
 import { FC } from "react"
-import { WaldoProps } from "../interfaces/waldo_interface"
+import { WaldoProps } from "../../interfaces/waldo_interface"
 import styles from './SelectOptions.module.css'
 import { useGameContext } from "./context/GameContext"
 import axios from "axios"
-import { GameProps } from "../interfaces/game_interface"
-import { gameStatusEnum, statusMessageEnum } from "../constants/enum"
+import { GameProps } from "../../interfaces/game_interface"
+import { gameStatusEnum, statusMessageEnum } from "../../constants/enum"
 
 
 interface SelectOptionProps {

@@ -1,14 +1,15 @@
 import styles from './Game.module.css';
 import { useState, useEffect, useRef, useCallback} from 'react';
 import SelectCircle from './SelectCircle';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { GameTypeProps, exampleGameType } from '../interfaces/game_type_interface';
-import { WaldoProps, sampleWaldo } from '../interfaces/waldo_interface';
-import { gameStatusEnum, statusMessageEnum } from '../constants/enum';
+import { GameTypeProps, exampleGameType } from '../../interfaces/game_type_interface';
+import { WaldoProps, sampleWaldo } from '../../interfaces/waldo_interface';
+import { gameStatusEnum, statusMessageEnum } from '../../constants/enum';
 import {GameContext} from './context/GameContext'
-import { GameProps } from '../interfaces/game_interface';
+import { GameProps } from '../../interfaces/game_interface';
+import Leaderboard from '../Score/Leaderboard';
 
 function App() {
   const {gameType} = useParams();
@@ -113,6 +114,15 @@ function App() {
 
   if(isLoading){
     return <div>Loading</div>
+  }
+
+  if(gameStatus === gameStatusEnum.IN_PROGRESS){
+    return (
+      <>
+        <Leaderboard />
+      </>
+    )
+
   }
 
   return (

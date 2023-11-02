@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App";
-import Game from './pages/Game';
+import Game from './pages/Game/Game';
 
 const Router = () => {
   const router = createBrowserRouter([
