@@ -1,14 +1,14 @@
-import {FC} from 'react'
+import {forwardRef, FC} from 'react'
 import { WaldoProps } from '../interfaces/waldo_interface'
 import styles from './Header.module.css'
 
 interface HeaderProps {
-  waldos: Array<WaldoProps>
+  waldos: Array<WaldoProps>,
 }
 
-const Header:FC<HeaderProps> = ({waldos}) => {
+const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos}, ref) => {
   return(
-    <header className = {styles.header}>
+    <header ref = {ref} className = {styles.header}>
       <h1 className = {styles.logo}>Findus</h1>
       <div className = {styles["waldo-container"]}>
         {waldos.map(waldo => (
@@ -23,6 +23,6 @@ const Header:FC<HeaderProps> = ({waldos}) => {
       <h1>SCORE:</h1>
     </header>
   )
-}
+});
 
 export default Header;

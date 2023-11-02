@@ -1,5 +1,5 @@
 import styles from './Game.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import SelectCircle from './SelectCircle';
 import Header from '../components/Header';
 import axios from 'axios';
@@ -17,12 +17,14 @@ function App() {
   const [waldos, setWaldos] = useState([]);
   const [currentGameType, setCurrentGameType] = useState<GameTypeProps>(exampleGameType);
   const [isLoading, setIsLoading] = useState(true);
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   function handleClick(event : React.MouseEvent<HTMLElement>){
     setIsActive(prevActive => !prevActive);
     setCoordinate({
       posX: event.pageX,
-      posY: event.pageY
+      posY: event.pageY - headerHeight
     })
   }
 
@@ -45,6 +47,9 @@ function App() {
       getGameType()
     ]).then(() => {
       setIsLoading(false);
+      if(headerRef.current != null){
+        setHeaderHeight(headerRef.current.clientHeight);
+      }
     })
 
   }, [gameType])
@@ -53,9 +58,11 @@ function App() {
     return <div>Loading</div>
   }
 
+  console.log(headerHeight);
+
   return (
     <>
-      <Header waldos = {waldos}/>
+      <Header ref = {headerRef} waldos = {waldos}/>
       <div onClick = {handleClick} className = {styles["img-container"]}>
         <img src = {`api/${currentGameType.image.path}`} />
         {isActive && <SelectCircle waldos = {waldos} posX = {coordinates.posX} posY = {coordinates.posY} />}
