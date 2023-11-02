@@ -14,8 +14,8 @@ const GameInstanceSchema = new Schema({
   },
   status: {
     type: String,
-    required: true,
-    enum: [gameStatusEnum.IN_PROGRESS, gameStatusEnum.COMPLETED]
+    enum: [gameStatusEnum.IN_PROGRESS, gameStatusEnum.COMPLETED],
+    default: gameStatusEnum.IN_PROGRESS
   },
   score: {
     type: Number,
@@ -24,7 +24,8 @@ const GameInstanceSchema = new Schema({
   }, 
   gameType: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: true,
+    ref: 'GameType'
   },
   waldoToFindRemaining: {
     type: Array,
@@ -32,4 +33,4 @@ const GameInstanceSchema = new Schema({
   }
 })
 
-module.exports = mongoose.model("GameModel", GameInstanceSchema)
+module.exports = mongoose.model("Game", GameInstanceSchema)

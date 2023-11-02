@@ -37,8 +37,9 @@ const WaldoModelSchema = new Schema({
   },
   gameType: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: true,
+    ref: 'GameType'
   }
 })
 
-module.exports = mongoose.model("WaldoModel", WaldoModelSchema)
+module.exports = mongoose.model("Waldo", WaldoModelSchema)
