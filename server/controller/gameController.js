@@ -2,6 +2,39 @@ const asyncHandler = require('express-async-handler');
 const GameType = require('../models/gameType')
 const GameInstance = require('../models/gameInstance');
 const Waldos = require('../models/waldo');
+const {gameStatusEnum} = require('../constants/enum');
+
+
+exports.game_instances = asyncHandler(async (req, res, next) => {
+  const {completed, limit, order, gameTypeName} = req.query;
+  const gameInstances = GameInstance.find({});
+  
+  if(gameTypeName){
+    const GameType = await GameType.findOne({gameType: gameTypeName}).exec();
+    gameInstances.find({gameType: GameType});
+  }
+
+  // checks null condition
+  if(completed){
+    if(completed === "true"){
+      gameInstances.find({status: gameStatusEnum.COMPLETED});
+    } else {
+      gameInstances.find({status: {$not: gameStatusEnum.COMPLETED}});
+    }
+  }
+
+  if(order){
+    gameInstances.sort(order);
+  }
+
+  if(limit){
+    gameInstances.limit(limit);
+  }
+
+  const data = await gameInstances.exec();
+  res.json(data);
+})
+
 
 exports.game_types = asyncHandler(async (req, res, next) => {
   const {gameType} = req.query;
@@ -62,4 +95,20 @@ exports.choose_waldo = asyncHandler(async (req, res, next) => {
   }
   currentGame.save();
   res.json(currentGame);
+})
+
+exports.set_name = asyncHandler(async (req, res, next) => {
+  const {gameId, name} = req.body;
+  const game = await GameInstance.findByIdAndUpdate(gameId, {
+    name: name
+  }).exec();
+  res.json(game);
+})
+
+exports.end_game = asyncHandler(async (req, res, next) => {
+  const {gameId} = req.body;
+  const game = await GameInstance.findByIdAndUpdate(gameId, {
+    status: gameStatusEnum.COMPLETED
+  }).exec();
+  res.json(game);
 })
