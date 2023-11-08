@@ -8,9 +8,13 @@ interface HeaderProps {
 }
 
 const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos, score}, ref) => {
+  function navHome(){
+    window.location.href = "/";
+  }
+
   return(
     <header ref = {ref} className = {styles.header}>
-      <h1 className = {styles.logo}>Findus</h1>
+      <h1 onClick = {navHome} className = {styles.logo}>Findus</h1>
       <div className = {styles["waldo-container"]}>
         {waldos.map(waldo => (
           <div className = {styles["find-elements"]} key = {waldo._id}>

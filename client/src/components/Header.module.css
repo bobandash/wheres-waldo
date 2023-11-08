@@ -21,6 +21,10 @@
   font-family: 'Arial Narrow Bold', sans-serif;
 }
 
+.logo:hover {
+  cursor: pointer;
+}
+
 .find-elements {
   display: flex;
   flex-direction: column;
