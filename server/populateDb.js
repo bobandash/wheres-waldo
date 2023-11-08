@@ -80,7 +80,7 @@ async function createSuperSmashGame(){
   })
 
   const KirbyModel = new WaldoModel({
-    name: "kirby",
+    name: "Kirby",
     image: {
       filename: 'kirby.png',
       path: '/uploads/waldos/kirby.png'
