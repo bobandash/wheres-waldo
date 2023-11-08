@@ -24,11 +24,11 @@ exports.game_instances = asyncHandler(async (req, res, next) => {
   }
 
   if(order){
-    gameInstances.sort(order);
+    gameInstances.sort({score: Number(order)});
   }
 
   if(limit){
-    gameInstances.limit(limit);
+    gameInstances.limit(Number(limit));
   }
 
   const data = await gameInstances.exec();

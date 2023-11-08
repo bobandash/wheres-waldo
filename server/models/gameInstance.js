@@ -10,7 +10,7 @@ const GameInstanceSchema = new Schema({
   },
   name: {
     type: String,
-    default: 'Undefined'
+    default: 'ANONYMOUS'
   },
   status: {
     type: String,
