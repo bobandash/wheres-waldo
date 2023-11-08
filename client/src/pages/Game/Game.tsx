@@ -72,8 +72,8 @@ function App() {
       const gameIdData = {
         gameId: gameId
       }
-      const newScoreData = (await axios.put('/api/game/update-score', gameIdData)).data;
-      setScore(newScoreData.score);
+      await axios.put('/api/game/update-score', gameIdData);
+      setScore((prevState) => prevState + 1);
     }
 
     if(gameStatus === gameStatusEnum.IN_PROGRESS){
