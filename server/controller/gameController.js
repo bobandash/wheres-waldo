@@ -10,8 +10,8 @@ exports.game_instances = asyncHandler(async (req, res, next) => {
   const gameInstances = GameInstance.find({});
   
   if(gameTypeName){
-    const GameType = await GameType.findOne({gameType: gameTypeName}).exec();
-    gameInstances.find({gameType: GameType});
+    const currentGameType = await GameType.findOne({gameType: gameTypeName}).exec();
+    gameInstances.find({gameType: currentGameType});
   }
 
   // checks null condition

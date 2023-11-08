@@ -30,7 +30,7 @@ const Leaderboard = () => {
         params: {
           completed: true,
           order: 1,
-          gameType: gameTypeName
+          gameTypeName: gameTypeName
         }
       })).data;
       const playerRank = data.map(data => data._id).indexOf(gameId);
@@ -46,7 +46,7 @@ const Leaderboard = () => {
           completed: true,
           limit: MAX_RANK_TO_DISPLAY,
           order: 1,
-          gameType: gameTypeName
+          gameTypeName: gameTypeName
         }
       })).data;
       setGameInstances(data);
