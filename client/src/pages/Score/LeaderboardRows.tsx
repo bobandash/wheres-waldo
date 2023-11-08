@@ -73,7 +73,7 @@ const InLeaderboardRows:FC<InLeaderboardRowsProps> = ({gameInstances, indexPlaye
   const {score} = useGameContext();
   return (
     <>
-      {gameInstances.map((gameInstance, index) => {
+      {gameInstances.map((gameInstance, index) => (
         index === indexPlayerRank ? 
         <PlayerRow 
           key={gameInstance._id} 
@@ -87,7 +87,7 @@ const InLeaderboardRows:FC<InLeaderboardRowsProps> = ({gameInstances, indexPlaye
           gameInstance={gameInstance} 
           index={index} 
         />
-      })}
+      ))}
     </>
   )
 }

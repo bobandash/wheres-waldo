@@ -50,6 +50,7 @@ th {
 .typing {
   border-right: 1px solid black;
   animation: blink-caret 0.75s step-end infinite;
+  font-weight: bold;
 }
 
 @keyframes blink-caret {

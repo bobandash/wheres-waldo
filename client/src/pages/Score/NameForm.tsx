@@ -6,10 +6,11 @@ import {FC} from 'react';
 interface ScoreFormProps {
   name: string,
   handleName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmittedName: () => void
+  handleSubmittedName: () => void,
+  hasSubmittedName: boolean
 }
 
-const ScoreForm:FC<ScoreFormProps> = ({name, handleName, handleSubmittedName}) => {
+const ScoreForm:FC<ScoreFormProps> = ({name, handleName, handleSubmittedName, hasSubmittedName}) => {
   const {gameId} = useGameContext();
 
   async function postName(){
@@ -26,7 +27,10 @@ const ScoreForm:FC<ScoreFormProps> = ({name, handleName, handleSubmittedName}) =
       handleSubmittedName();
       await postName()}
     } className = {styles.form}>
-      <input onChange = {handleName} required = {true} type = "text" value = {name} placeholder = "Username" />
+      {hasSubmittedName ?
+        <input required = {true} type = "text" value = {name} disabled/> :
+        <input onChange = {handleName} required = {true} type = "text" value = {name} placeholder = "Username" />
+      }
       <button type = "submit">Submit</button>
     </form>
   )

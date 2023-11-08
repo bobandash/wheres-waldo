@@ -81,7 +81,7 @@ const Leaderboard = () => {
             }
           </tbody>
         </table>
-        <NameForm name = {name} handleName = {handleName} handleSubmittedName = {handleSubmittedName}/>
+        <NameForm name = {name} handleName = {handleName} handleSubmittedName = {handleSubmittedName} hasSubmittedName = {hasSubmittedName}/>
       </div>
       {hasSubmittedName && <RedirectButtons />}
     </>
