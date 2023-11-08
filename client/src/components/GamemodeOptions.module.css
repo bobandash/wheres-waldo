@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
+  width: 30%;
 }
 
 .gamemode-option img {
-  max-width: 600px;
+  display: inline-block;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
