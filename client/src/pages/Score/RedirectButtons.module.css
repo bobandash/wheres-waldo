@@ -1,0 +1,21 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.button-container button {
+  min-width: 120px; 
+}
+
+.button-container button {
+  padding: 6px 12px;
+  font-size: 18px;
+  background: radial-gradient(rgb(79, 80, 80), rgb(21, 23, 22));
+  color: white;
+}
+
+.button-container button:hover {
+  cursor: pointer;
+}

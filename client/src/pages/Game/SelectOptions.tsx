@@ -8,9 +8,7 @@ import { gameStatusEnum, statusMessageEnum } from "../../constants/enum"
 
 
 interface SelectOptionProps {
-  waldo: WaldoProps
-  posX: number,
-  posY: number
+  waldo: WaldoProps;
 }
 
 interface standardizeDimensionsProps {
@@ -65,6 +63,10 @@ const SelectOption:FC<SelectOptionProps> = ({waldo}) => {
       handleWaldos(currentGameInstance.waldoToFindRemaining);
       handleSetMessage(statusMessageEnum.SUCCESS);
       if(currentGameInstance.waldoToFindRemaining.length === 0){
+        const data = {
+          gameId: gameId
+        }
+        await axios.put('/api/game/end-game', data)
         handleGameStatus(gameStatusEnum.COMPLETED);
       }
     }
@@ -97,7 +99,7 @@ const SelectOptions:FC = () => {
       className = {atLeftSide ? `${styles["options-container"]} ${styles.right}` : `${styles["options-container"]} ${styles.left}`} 
     >
         {waldos.map(waldo => (
-          <SelectOption waldo = {waldo} key = {waldo._id} posX = {posX} posY = {posY}/>
+          <SelectOption waldo = {waldo} key = {waldo._id}/>
         ))}
     </div>
   )

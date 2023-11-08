@@ -9,7 +9,7 @@ import { WaldoProps, sampleWaldo } from '../../interfaces/waldo_interface';
 import { gameStatusEnum, statusMessageEnum } from '../../constants/enum';
 import {GameContext} from './context/GameContext'
 import { GameProps } from '../../interfaces/game_interface';
-import Leaderboard from '../Score/Leaderboard';
+import Score from '../Score/Score';
 
 function App() {
   const {gameType} = useParams();
@@ -116,13 +116,30 @@ function App() {
     return <div>Loading</div>
   }
 
-  if(gameStatus === gameStatusEnum.IN_PROGRESS){
+  if(gameStatus === gameStatusEnum.COMPLETED){
     return (
-      <>
-        <Leaderboard />
-      </>
+      <GameContext.Provider value = {{
+        coordinates: coordinates,
+        imageDimensions: currentGameType.dimensions,
+        windowWidth, 
+        handleWaldos, 
+        handleGameStatus,
+        handleSetMessage,
+        gameId, 
+        headerHeight, 
+        score,
+        waldos,
+        gameTypeName: currentGameType.gameType
+      }}>
+        <div className = {styles["screen-size"]}>
+          <Header ref = {headerRef} waldos = {waldos} score = {score}/>
+          <div className = {styles["img-container"]}>
+            <img src = {`api/${currentGameType.image.path}`} />
+            <Score />      
+          </div>
+        </div>
+      </GameContext.Provider>
     )
-
   }
 
   return (
@@ -136,7 +153,8 @@ function App() {
       gameId, 
       headerHeight, 
       score,
-      waldos
+      waldos,
+      gameTypeName: currentGameType.gameType
     }}>
       <Header ref = {headerRef} waldos = {waldos} score = {score}/>
       <div onClick = {handleClick} className = {styles["img-container"]}>

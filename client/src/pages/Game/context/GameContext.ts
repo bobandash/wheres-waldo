@@ -17,7 +17,8 @@ interface GameContextProps {
   imageDimensions: {
     width: number,
     height: number
-  }
+  },
+  gameTypeName: string
 }
 
 export const GameContext = createContext<GameContextProps | undefined>(undefined);

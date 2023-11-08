@@ -1,0 +1,58 @@
+.leaderboard-container {
+  background: radial-gradient(white, hsl(0, 1%, 58%));
+  min-height: 70vh;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 10px solid black;
+}
+
+.leaderboard-container * {
+  color: black;;
+  text-align: center;
+  margin: 0;
+}
+
+.table {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid black;
+}
+
+.table thead tr:first-child {
+  border-bottom: 1px solid black;
+}
+
+.table thead {
+  margin-bottom: 4px;
+}
+
+
+.table tbody tr {
+  font-size: 18px;
+  padding: 4px 0px;
+}
+
+th {
+  font-size: 24px;
+  padding: 4px 0px;
+}
+
+.table tr {
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+}
+
+
+.typing {
+  border-right: 1px solid black;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}

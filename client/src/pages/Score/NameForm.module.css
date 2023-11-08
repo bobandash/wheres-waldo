@@ -1,0 +1,29 @@
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form * {
+  color: black;
+  font-size: 18px;
+}
+
+.form input {
+  text-align: left;
+  padding-left: 4px;
+}
+
+.form input:focus {
+  outline: 0px;
+}
+
+.form button {
+  background:  radial-gradient(rgb(79, 80, 80), rgb(21, 23, 22));
+  color: white;
+  padding: 1px 10px;
+}
+
+.form button:hover {
+  cursor: pointer;
+}
