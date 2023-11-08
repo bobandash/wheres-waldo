@@ -6,8 +6,114 @@ const WaldoModel = require('./models/waldo');
 main();
 
 async function main(){
-  await createPokemonGame();
+  await Promise.all([
+    createPokemonGame(),
+    createWaldoGame(),
+    createSuperSmashGame()
+  ]);
   await mongoose.connection.close();
+}
+
+async function createWaldoGame(){
+  const waldoGameType = new gameType({
+    gameType: gameTypeEnum.WALDO,
+    image: {
+      filename: 'waldo.jpg',
+      path: '/uploads/backgrounds/waldo.jpg'
+    },
+    dimensions: {
+      width: 1280,
+      height: 2272
+    }
+  });
+  await waldoGameType.save();
+
+  const Waldo = new WaldoModel({
+    name: "Waldo",
+    image: {
+      filename: 'waldo.png',
+      path: '/uploads/waldos/waldo.png'
+    },
+    pixelPositionRange: {
+      minPixelX: 1035,
+      minPixelY: 827,
+      maxPixelX: 1104,
+      maxPixelY: 958
+    },
+    gameType: waldoGameType
+  })
+
+  await Promise.all([
+    Waldo.save(),
+  ])
+}
+
+async function createSuperSmashGame(){
+  // create game type
+  // contains background image and dimensions
+  const superSmashGameType = new gameType({
+    gameType: gameTypeEnum.SMASH,
+    image: {
+      filename: 'super smash.jpg',
+      path: '/uploads/backgrounds/super smash.jpg'
+    },
+    dimensions: {
+      width: 1350,
+      height: 2508
+    }
+  });
+  await superSmashGameType.save();
+
+  const JigglypuffModel = new WaldoModel({
+    name: "Jigglypuff",
+    image: {
+      filename: 'jigglypuff.png',
+      path: '/uploads/waldos/jigglypuff.png'
+    },
+    pixelPositionRange: {
+      minPixelX: 944,
+      minPixelY: 1862,
+      maxPixelX: 1153,
+      maxPixelY: 2080
+    },
+    gameType: superSmashGameType
+  })
+
+  const KirbyModel = new WaldoModel({
+    name: "kirby",
+    image: {
+      filename: 'kirby.png',
+      path: '/uploads/waldos/kirby.png'
+    },
+    pixelPositionRange: {
+      minPixelX: 250,
+      minPixelY: 1200,
+      maxPixelX: 488,
+      maxPixelY: 1403
+    },
+    gameType: superSmashGameType
+  })
+
+  const DonkeyKongModel = new WaldoModel({
+    name: "Donkey Kong",
+    image: {
+      filename: 'donkey kong.png',
+      path: '/uploads/waldos/donkey kong.png'
+    },
+    pixelPositionRange: {
+      minPixelX: 61,
+      minPixelY: 674,
+      maxPixelX: 352,
+      maxPixelY: 905
+    },
+    gameType: superSmashGameType
+  })
+
+  await Promise.all([
+    JigglypuffModel.save(),
+    KirbyModel.save(),
+    DonkeyKongModel.save()
+  ])
 }
 
 async function createPokemonGame(){
