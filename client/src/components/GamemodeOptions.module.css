@@ -5,6 +5,10 @@
   width: 30%;
 }
 
+.gamemode-option:hover {
+  cursor: pointer;
+}
+
 .gamemode-option img {
   display: inline-block;
   max-width: 100%;
