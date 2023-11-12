@@ -1,7 +1,7 @@
 .header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 15px 10%;
+  padding: 15px 5%;
   background: radial-gradient(rgb(79, 80, 80), rgb(21, 23, 22));
   background-repeat: no-repeat;
   position: sticky;
@@ -14,6 +14,7 @@
 }
 
 .logo {
+  font-size: 24px;
   text-transform: uppercase;
   color: white;
   font-family: 'Arial Narrow Bold', sans-serif;
@@ -28,13 +29,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .waldo-container {
   display: flex;
   flex-direction: row;
   justify-self: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .waldo-container p {
@@ -43,16 +45,46 @@
 }
 
 .img-container {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  display: flex;
 }
 
 .img-container img {
+  margin-top: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
+.find-elements > p {
+  display: none;
+}
+
 .score {
   justify-self: flex-end;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 750px) {
+  .header {
+    padding: 15px 10%;
+  }
+
+  .logo, .score  {
+    font-size: 36px;
+  }
+
+  .img-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .find-elements > p {
+    display: block;
+  }
+
+  .waldo-container {
+    gap: 20px;
+  }
 }
