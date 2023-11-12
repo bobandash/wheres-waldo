@@ -53,8 +53,13 @@
 }
 
 .image-container {
+  display: flex;
   height: 40px;
   width: 40px;
+}
+
+.image-container img {
+  margin: auto 0;
 }
 
 .option img {
