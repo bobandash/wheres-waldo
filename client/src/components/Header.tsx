@@ -25,7 +25,7 @@ const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos, sc
           </div>
         ))}
       </div>
-      <h1>SCORE: {score}</h1>
+      <h1 className = {styles["score"]}>SCORE: {score}</h1>
     </header>
   )
 });
