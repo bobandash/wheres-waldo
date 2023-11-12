@@ -10,6 +10,7 @@ import { gameStatusEnum, statusMessageEnum } from '../../constants/enum';
 import {GameContext} from './context/GameContext'
 import { GameProps } from '../../interfaces/game_interface';
 import Score from '../Score/Score';
+import LoadingScreen from '../Loading/LoadingScreen';
 
 function App() {
   const {gameType} = useParams();
@@ -113,7 +114,7 @@ function App() {
   }
 
   if(isLoading){
-    return <div>Loading</div>
+    return <LoadingScreen />
   }
 
   if(gameStatus === gameStatusEnum.COMPLETED){
