@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+:root {
+  --default-font-face: 'Calistoga', serif;
+}
+
 body, html {
   margin: 0;
 }
 
 * {
   box-sizing: border-box;
+  font-family: var(--default-font-face);
 }
 
 .circle {
