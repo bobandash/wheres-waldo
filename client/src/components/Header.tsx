@@ -1,4 +1,4 @@
-import {forwardRef, FC} from 'react'
+import {forwardRef} from 'react'
 import { WaldoProps } from '../interfaces/waldo_interface'
 import styles from './Header.module.css'
 
@@ -7,7 +7,7 @@ interface HeaderProps {
   score: number
 }
 
-const Header:FC<HeaderProps> = forwardRef<HTMLElement, HeaderProps>(({waldos, score}, ref) => {
+const Header = forwardRef<HTMLElement, HeaderProps>(({waldos, score}, ref) => {
   function navHome(){
     window.location.href = "/";
   }
