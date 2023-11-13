@@ -22,7 +22,10 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
           {waldos.map((waldo) => (
             <div className={styles["find-elements"]} key={waldo._id}>
               <div className={styles["img-container"]}>
-                <img src={`/api${waldo.image.path}`} alt={waldo.name} />
+                <img
+                  src={`https://wheres-waldo-z5t3.onrender.com/${waldo.image.path}`}
+                  alt={waldo.name}
+                />
               </div>
               <p>{waldo.name}</p>
             </div>

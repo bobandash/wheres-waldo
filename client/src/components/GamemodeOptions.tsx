@@ -13,7 +13,10 @@ const GamemodeOptions: FC<GamemodeOptionsProps> = ({ gameType }) => {
 
   return (
     <div onClick={redirectGame} className={styles["gamemode-option"]}>
-      <img src={`/api/${gameType.image.path}`} alt={gameType.gameType} />
+      <img
+        src={`https://wheres-waldo-z5t3.onrender.com/${gameType.image.path}`}
+        alt={gameType.gameType}
+      />
       <p>{gameType.gameType}</p>
     </div>
   );

@@ -96,7 +96,10 @@ const SelectOption: FC<SelectOptionProps> = ({ waldo }) => {
       className={styles.option}
     >
       <div className={styles["image-container"]}>
-        <img src={`/api/${waldo.image.path}`} alt={waldo.name} />
+        <img
+          src={`https://wheres-waldo-z5t3.onrender.com/${waldo.image.path}`}
+          alt={waldo.name}
+        />
       </div>
       <p>{waldo.name}</p>
     </div>
