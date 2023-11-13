@@ -17,8 +17,8 @@ const App = () => {
     setIsLoading(false);
   }, []);
 
-  if(isLoading){
-    return <LoadingScreen />
+  if (isLoading) {
+    return <LoadingScreen />;
   }
 
   return (
