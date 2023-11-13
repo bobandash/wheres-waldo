@@ -23,7 +23,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
             <div className={styles["find-elements"]} key={waldo._id}>
               <div className={styles["img-container"]}>
                 <img
-                  src={`https://wheres-waldo-z5t3.onrender.com/${waldo.image.path}`}
+                  src={`https://wheres-waldo-z5t3.onrender.com${waldo.image.path}`}
                   alt={waldo.name}
                 />
               </div>
