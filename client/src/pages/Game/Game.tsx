@@ -149,7 +149,9 @@ function App() {
         <div className={styles["screen-size"]}>
           <Header ref={headerRef} waldos={waldos} score={score} />
           <div className={styles["img-container"]}>
-            <img src={`api/${currentGameType.image.path}`} />
+            <img
+              src={`https://wheres-waldo-z5t3.onrender.com${currentGameType.image.path}`}
+            />
             <Score />
           </div>
         </div>
@@ -185,7 +187,9 @@ function App() {
             {statusMessage}
           </span>
         )}
-        <img src={`api/${currentGameType.image.path}`} />
+        <img
+          src={`https://wheres-waldo-z5t3.onrender.com${currentGameType.image.path}`}
+        />
         {isActive && <SelectCircle />}
       </div>
     </GameContext.Provider>
