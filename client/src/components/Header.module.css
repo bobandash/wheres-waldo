@@ -17,7 +17,7 @@
   font-size: 24px;
   text-transform: uppercase;
   color: white;
-  font-family: 'Arial Narrow Bold', sans-serif;
+  font-family: "Arial Narrow Bold", sans-serif;
   justify-self: flex-start;
 }
 
@@ -71,7 +71,8 @@
     padding: 15px 10%;
   }
 
-  .logo, .score  {
+  .logo,
+  .score {
     font-size: 36px;
   }
 

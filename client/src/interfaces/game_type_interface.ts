@@ -1,25 +1,25 @@
 export interface GameTypeProps {
-  _id: string,
-  gameType: string,
+  _id: string;
+  gameType: string;
   image: {
-    filename: string,
-    path: string
-  },
+    filename: string;
+    path: string;
+  };
   dimensions: {
-    width: number,
-    height: number
-  }
+    width: number;
+    height: number;
+  };
 }
 
 export const exampleGameType = {
-  _id: '',
-  gameType: '',
+  _id: "",
+  gameType: "",
   image: {
-    filename: '',
-    path: '',
+    filename: "",
+    path: "",
   },
   dimensions: {
     width: 1,
-    height: 1
-  }
-}
+    height: 1,
+  },
+};

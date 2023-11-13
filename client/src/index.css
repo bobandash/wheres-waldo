@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
 
 :root {
-  --default-font-face: 'Calistoga', serif;
+  --default-font-face: "Calistoga", serif;
 }
 
-body, html {
+body,
+html {
   margin: 0;
 }
 
@@ -28,7 +29,6 @@ body, html {
     border-radius: 50%;
   }
 }
-
 
 @media screen and (min-width: 1200px) {
   .circle {

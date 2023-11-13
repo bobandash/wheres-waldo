@@ -21,7 +21,6 @@
 .gamemode-options-container {
   display: flex;
   flex-direction: column;
-
 }
 
 @media screen and (min-width: 750px) {
@@ -32,7 +31,11 @@
   .container > h1 {
     margin: 0;
     font-size: 60px;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    text-shadow:
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000;
   }
 
   .gamemode-options-container {
@@ -44,4 +47,3 @@
     gap: 5%;
   }
 }
-

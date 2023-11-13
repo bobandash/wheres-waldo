@@ -1,18 +1,17 @@
 export interface WaldoProps {
-  _id: string
-  name: string,
+  _id: string;
+  name: string;
   image: {
-    filename: string,
-    path: string
-  }
+    filename: string;
+    path: string;
+  };
 }
 
 export const sampleWaldo = {
-  _id: '',
-  name: '',
+  _id: "",
+  name: "",
   image: {
-    filename: '',
-    path: '',
+    filename: "",
+    path: "",
   },
-}
-
+};

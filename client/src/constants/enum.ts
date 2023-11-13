@@ -1,19 +1,19 @@
 const gameTypeEnum = {
-  POKEMON: 'pokemon',
-  SMASH: 'smash',
-  WALDO: 'waldo'
-}
+  POKEMON: "pokemon",
+  SMASH: "smash",
+  WALDO: "waldo",
+};
 
 const gameStatusEnum = {
-  NOT_STARTED: 'not started',
-  IN_PROGRESS: 'in progress',
-  COMPLETED: 'completed'
-}
+  NOT_STARTED: "not started",
+  IN_PROGRESS: "in progress",
+  COMPLETED: "completed",
+};
 
 const statusMessageEnum = {
-  BLANK: '',
-  SUCCESS: 'Keep it up!',
-  ERROR: 'Incorrect Location'
-}
+  BLANK: "",
+  SUCCESS: "Keep it up!",
+  ERROR: "Incorrect Location",
+};
 
-export {gameTypeEnum, gameStatusEnum, statusMessageEnum};
+export { gameTypeEnum, gameStatusEnum, statusMessageEnum };

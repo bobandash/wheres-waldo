@@ -9,7 +9,7 @@
 }
 
 .leaderboard-container * {
-  color: black;;
+  color: black;
   text-align: center;
   margin: 0;
 }
@@ -30,7 +30,6 @@
   margin-bottom: 4px;
 }
 
-
 .table tbody tr {
   font-size: 18px;
   padding: 4px 0px;
@@ -46,7 +45,6 @@ th {
   grid-template-columns: repeat(3, 33.3%);
 }
 
-
 .typing {
   border-right: 1px solid black;
   animation: blink-caret 0.75s step-end infinite;
@@ -54,6 +52,11 @@ th {
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: black; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
 }
