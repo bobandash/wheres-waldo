@@ -65,7 +65,10 @@ const SelectOption: FC<SelectOptionProps> = ({ waldo }) => {
 
   async function handleOptionClick() {
     const currentGameInstance: GameProps = (
-      await axios.put("/api/game/choose-waldo", data)
+      await axios.put(
+        "https://wheres-waldo-z5t3.onrender.com/game/choose-waldo",
+        data,
+      )
     ).data;
     if (waldos.length === currentGameInstance.waldoToFindRemaining.length) {
       handleSetMessage(statusMessageEnum.ERROR);
@@ -76,7 +79,10 @@ const SelectOption: FC<SelectOptionProps> = ({ waldo }) => {
         const data = {
           gameId: gameId,
         };
-        await axios.put("/api/game/end-game", data);
+        await axios.put(
+          "https://wheres-waldo-z5t3.onrender.com/game/end-game",
+          data,
+        );
         handleGameStatus(gameStatusEnum.COMPLETED);
       }
     }

@@ -23,7 +23,7 @@ const ScoreForm: FC<ScoreFormProps> = ({
       gameId: gameId,
       name: name,
     };
-    await axios.put("/api/game/set-name", nameData);
+    await axios.put("https://wheres-waldo-z5t3.onrender.com/game/set-name", nameData);
   }
 
   return (

@@ -10,7 +10,9 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function getGameTypes() {
-      const data = (await axios.get("/api/game/gameTypes")).data;
+      const data = (
+        await axios.get("https://wheres-waldo-z5t3.onrender.com/game/gameTypes")
+      ).data;
       setGameTypes(data);
     }
     getGameTypes();

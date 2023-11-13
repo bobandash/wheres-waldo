@@ -53,7 +53,10 @@ function App() {
         gameType: gameType,
       };
       const game: GameProps = (
-        await axios.post("/api/game/start", gameTypeData)
+        await axios.post(
+          "https://wheres-waldo-z5t3.onrender.com/game/start",
+          gameTypeData,
+        )
       ).data;
       // game object has all the data relevant to the game
       setGameId(game._id);
@@ -79,7 +82,10 @@ function App() {
       const gameIdData = {
         gameId: gameId,
       };
-      await axios.put("/api/game/update-score", gameIdData);
+      await axios.put(
+        "https://wheres-waldo-z5t3.onrender.com/game/update-score",
+        gameIdData,
+      );
       setScore((prevState) => prevState + 1);
     }
 

@@ -27,7 +27,7 @@ const Leaderboard = () => {
     const MAX_RANK_TO_DISPLAY = 20;
     async function getLeaderboardRank() {
       const data: Array<GameProps> = (
-        await axios.get("/api/game", {
+        await axios.get("https://wheres-waldo-z5t3.onrender.com/game", {
           params: {
             completed: true,
             order: 1,
@@ -44,7 +44,7 @@ const Leaderboard = () => {
 
     async function getCompletedGames() {
       const data = (
-        await axios.get("/api/game", {
+        await axios.get("https://wheres-waldo-z5t3.onrender.com/game", {
           params: {
             completed: true,
             limit: MAX_RANK_TO_DISPLAY,
