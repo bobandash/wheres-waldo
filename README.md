@@ -17,7 +17,17 @@ Backend:
 - MongoDB
 
 ## Quick Start
-- 
+- Fork the project
+- Clone the project using git clone https://github.com/bobandash/wheres-waldo.git
+- Open the project using the editor of your choice
+- Run npm install
+- Create a database on mongoDB
+- Make sure that you're current directory is on the server
+- Create an .env file with your database URL (include password) with MONGODB_URL as the key
+- Run "node populateDb.js" to populate the database
+- Run npm run devStart to compile the server
+- Make another terminal with the directory on the client and run "npm run dev"
+
 
 ## Concepts Learned
 - More practice on common React hooks (first time using useRef and useContext)
