@@ -1,6 +1,6 @@
 # FINDUS
 ## Description:
-A full-stack implementation of the classic game Where's Waldo with different images (classic Where's Waldo, Super Smash Bros, and Pokemon).
+A full-stack implementation of the classic game Where's Waldo with different images (classic Where's Waldo, Super Smash Bros, and Pokemon). NOTE: The game modes may load slowly because the backend is hosted on a free PaaS, which takes time to spin up.
 
 ## Preview:
 ![where's waldo](https://github.com/bobandash/wheres-waldo/assets/74850332/58c92b34-0f63-4731-85f6-373bec77023a)
